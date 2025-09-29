@@ -206,3 +206,26 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 	}
 });
+window.addEventListener('DOMContentLoaded', function() {
+  if (window.innerWidth > 600) {
+    const overlay = document.createElement('div');
+    overlay.style.position = 'fixed';
+    overlay.style.top = 0;
+    overlay.style.left = 0;
+    overlay.style.width = '100vw';
+    overlay.style.height = '100vh';
+    overlay.style.background = 'rgba(0,0,0,0.85)';
+    overlay.style.zIndex = 99999;
+    overlay.style.display = 'flex';
+    overlay.style.flexDirection = 'column';
+    overlay.style.alignItems = 'center';
+    overlay.style.justifyContent = 'center';
+    overlay.style.color = '#fff';
+    overlay.innerHTML = '<h2>Deze app is geoptimaliseerd voor mobiel</h2>' +
+      '<button id="open-mobile-window" style="padding: 12px 28px; font-size: 1.2em; border-radius: 8px; background: linear-gradient(90deg,#a259c3,#43e7e7); color: #fff; border: none; cursor: pointer; margin-top: 24px;">Open in mobiel venster</button>';
+    document.body.appendChild(overlay);
+    document.getElementById('open-mobile-window').onclick = function() {
+      window.open(window.location.href, '_blank', 'width=400,height=800');
+    };
+  }
+});
