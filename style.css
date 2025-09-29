@@ -11,24 +11,29 @@ body, html {
     width: 100vw;
     height: 100vh;
     z-index: 0;
-    background: #000 url('assets/3page_back.png') no-repeat center center;
-    background-size: cover;
+    background: #000 url('assets/3page_back.png') no-repeat 0% center;
+    background-size: 300% 100%;
     transition: background-position 0.6s cubic-bezier(.14,-0.08,.74,1.4);
-    background-position: center;
+    background-position: 50% center;
 }
 .background-left {
-    background-position: left center !important;
+    background-position: 0% center !important;
 }
 .background-center {
-    background-position: center center !important;
+    background-position: 50% center !important;
 }
 .background-right {
-    background-position: right center !important;
+    background-position: 100% center !important;
 }
 .main-content {
     position: relative;
     z-index: 1;
     background: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100vw;
 }
 .phone-footer {
     position: fixed;

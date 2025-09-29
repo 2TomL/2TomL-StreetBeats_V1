@@ -1,0 +1,126 @@
+#mix-cover {
+    width: 100%;
+    max-width: 100px;
+    display: block;
+    margin: 0 auto 8px;
+}
+/* Verberg Play on SoundCloud knop in iframe */
+#sc-player::-webkit-scrollbar,
+#sc-player .sc-button,
+#sc-player .sc-miniplayer {
+    display: none !important;
+    visibility: hidden !important;
+}
+#sc-player-wrapper {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 120px);
+    width: 220px;
+    max-width: 80vw;
+    z-index: 101;
+    font-size: 0.85em;
+}
+.sc-player-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s;
+}
+.sc-player-show {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.6s;
+}
+#sc-song-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    margin-top: 0.5em;
+    justify-content: center;
+}
+#sc-song-menu button {
+    background: #222;
+    color: #ff9100;
+    border: none;
+    border-radius: 8px;
+    padding: 0.3em 0.7em;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: background 0.2s;
+}
+#sc-song-menu button:hover {
+    background: #ff9100;
+    color: #222;
+}
+.radio-anim-container {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-end;
+    z-index: 20;
+    pointer-events: none;
+}
+.radio-img {
+    width: 320px;
+    max-width: 95vw;
+    position: relative;
+    bottom: 0;
+    opacity: 0;
+    animation: radioUp 1.2s cubic-bezier(.14,-0.08,.74,1.4) forwards;
+    margin-bottom: 60px;
+    z-index: 100;
+}
+@keyframes radioUp {
+    0% { bottom: -300px; opacity: 0; }
+    80% { opacity: 1; }
+    100% { bottom: 0; opacity: 1; }
+}
+.card-container {
+    opacity: 0;
+    transform: translateY(80px);
+    animation: cardSlideUp 1s 1.2s cubic-bezier(.14,-0.08,.74,1.4) forwards;
+    z-index: 10;
+    margin-bottom: 90px;
+}
+@keyframes cardSlideUp {
+    0% { opacity: 0; transform: translateY(80px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+.card-container {
+    z-index: 10;
+    width: 100vw;
+    max-width: 600px;
+    min-width: 320px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    position: relative;
+    top: 60px;
+}
+.card-container .main-card {
+    filter: url(#card-turbulence);
+    width: 100%;
+    min-width: 320px;
+    max-width: 580px;
+    aspect-ratio: 7 / 10;
+    background: rgba(0,0,0,0.5);
+    border-radius: 1.5em;
+    border: 3px solid #ff9100;
+}
+
+.border-outer {
+    border: none;
+    border-radius: 1.5em;
+    box-shadow: none;
+}
+
+.glow-layer-1 {
+    display: none;
+}
+
+
