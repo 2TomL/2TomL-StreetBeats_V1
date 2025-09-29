@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	document.getElementById('nav-web').addEventListener('click', function() {
 		bg.classList.remove('background-center', 'background-right');
 		bg.classList.add('background-left');
-		// Toon web, verberg radio en projector
+		// Show web, hide radio and projector
 		radioSection.style.display = 'none';
 		webSection.style.display = 'flex';
 		const ytSection = document.querySelector('.yt-anim-container');
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	document.getElementById('nav-soundcloud').addEventListener('click', function() {
 		bg.classList.remove('background-left', 'background-right');
 		bg.classList.add('background-center');
-		// Toon radio, verberg web en projector
+		// Show radio, hide web and projector
 		webSection.style.display = 'none';
 		radioSection.style.display = 'flex';
 		radioSection.style.opacity = 0;
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			ytSection.style.display = 'none';
 			ytSection.style.opacity = 0;
 		}
-		// Animatie: fade-in radio en card, daarna player/menu
+		// Animation: fade-in radio and card, then player/menu
 		setTimeout(() => {
 			radioSection.style.opacity = 1;
 			setTimeout(() => {
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	document.getElementById('nav-youtube').addEventListener('click', function() {
 		bg.classList.remove('background-left', 'background-center');
 		bg.classList.add('background-right');
-		// Toon projector, verberg web/radio
+		// Show projector, hide web/radio
 		webSection.style.display = 'none';
 		radioSection.style.display = 'none';
 		const ytSection = document.querySelector('.yt-anim-container');
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		ytSection.style.display = 'block';
 		ytSection.style.opacity = 0;
 		ytImg.style.transform = 'scale(0.7)';
-		// Fade-in en scale-up animatie exact als radio
+		// Fade-in and scale-up animation exactly like radio
 		setTimeout(() => {
 			ytSection.style.transition = 'opacity 0.9s cubic-bezier(0.4,0,0.2,1)';
 			ytSection.style.opacity = 1;
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			ytImg.style.transform = 'scale(1)';
 		}, 300);
 	});
-	// Initieel: center
+	// Initially: center
 	bg.classList.add('background-center');
 
 	// SoundCloud player logic
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		.then(str => (new window.DOMParser()).parseFromString(str, "text/xml"))
 		.then(data => {
 			const items = Array.from(data.querySelectorAll('item'));
-			// Filter dubbele titels
+			// Filter duplicate titles
 			const seen = new Set();
 			const tracks = items.map(item => ({
 				title: item.querySelector('title').textContent,
@@ -102,9 +102,9 @@ document.addEventListener('DOMContentLoaded', function() {
 				seen.add(track.title);
 				return true;
 			});
-			// Build menu: alleen de nieuwste track tonen
+			// Build menu: only show the latest track
 			menu.innerHTML = '';
-			// Vul custom dropdown
+			// Fill custom dropdown
 			let dropdownMenuEl = document.getElementById('dropdown-menu');
 			dropdownMenuEl.innerHTML = '';
 			tracks.forEach((track, i) => {
@@ -116,9 +116,9 @@ document.addEventListener('DOMContentLoaded', function() {
 				};
 				dropdownMenuEl.appendChild(li);
 			});
-			// Standaard eerste track
+			// Default to first track
 			if (tracks.length) setTrack(tracks[0].url, tracks[0].img);
-	// Dropdown functionaliteit
+	// Dropdown functionality
 	const dropdownBtn = document.getElementById('dropdown-btn');
 	const dropdownMenu = document.getElementById('dropdown-menu');
 	dropdownBtn.addEventListener('click', function(e) {
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		cover.style.display = 'block';
 	}
 
-	// Animatie: player pas tonen na card
+	// Animation: player only show after card
 	setTimeout(() => {
 		playerWrapper.classList.remove('sc-player-hidden');
 		playerWrapper.classList.add('sc-player-show');
@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		document.getElementById('sc-player').style.opacity = 1;
 		document.getElementById('sc-song-menu').style.opacity = 1;
 		document.querySelector('.custom-dropdown').style.opacity = 1;
-		// YouTube projector animatie resetten
+		// YouTube projector animation reset
 		const ytSection = document.querySelector('.yt-anim-container');
 		if (ytSection) {
 			ytSection.style.display = 'none';
@@ -164,9 +164,9 @@ document.addEventListener('DOMContentLoaded', function() {
 			const ytImg = document.querySelector('.yt-img');
 			if (ytImg) ytImg.style.transform = 'scale(0.7)';
 		}
-	}, 2000); // na card-animatie
+	}, 2000); // after card animation
 
-	// Kim Martini SVG animatie
+	// Kim Martini SVG animation
 	const pattern = document.getElementById("kimPattern");
 	if (pattern) {
 		const colors = ["#a259c3", "#f857a6", "#43e7e7", "#ffffff", "#7ec8e3"];
@@ -221,8 +221,8 @@ window.addEventListener('DOMContentLoaded', function() {
     overlay.style.alignItems = 'center';
     overlay.style.justifyContent = 'center';
     overlay.style.color = '#fff';
-    overlay.innerHTML = '<h2>Deze app is geoptimaliseerd voor mobiel</h2>' +
-      '<button id="open-mobile-window" style="padding: 12px 28px; font-size: 1.2em; border-radius: 8px; background: linear-gradient(90deg,#a259c3,#43e7e7); color: #fff; border: none; cursor: pointer; margin-top: 24px;">Open in mobiel venster</button>';
+    overlay.innerHTML = '<h2>This app is optimized for mobile</h2>' +
+      '<button id="open-mobile-window" style="padding: 12px 28px; font-size: 1.2em; border-radius: 8px; background: linear-gradient(90deg,#a259c3,#43e7e7); color: #fff; border: none; cursor: pointer; margin-top: 24px;">Open in mobile window</button>';
     document.body.appendChild(overlay);
     document.getElementById('open-mobile-window').onclick = function() {
       window.open(window.location.href, '_blank', 'width=400,height=800');
