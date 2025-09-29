@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				document.getElementById('sc-player').style.opacity = 1;
 				document.getElementById('sc-song-menu').style.opacity = 1;
 				document.querySelector('.custom-dropdown').style.opacity = 1;
-			}, 900);
+			}, 2000);
 		}, 100);
 	});
 	document.getElementById('nav-youtube').addEventListener('click', function() {
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			const ytImg = document.querySelector('.yt-img');
 			if (ytImg) ytImg.style.transform = 'scale(0.7)';
 		}
-	}, 2200); // na card-animatie
+	}, 2000); // na card-animatie
 
 	// Kim Martini SVG animatie
 	const pattern = document.getElementById("kimPattern");
