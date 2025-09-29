@@ -322,3 +322,41 @@ label > img{
 #s3:checked ~ .phone_content .phone_bottom .indicator{
     left: 66%;
 }
+/* Kim Martini header bovenaan */
+.kim-header {
+  width: 100vw;
+  min-height: 120px;
+  background: transparent;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  box-shadow: 0 2px 24px 0 #000a;
+}
+.kim-svg {
+  width: 100vw;
+  height: 120px;
+  display: block;
+  pointer-events: none;
+}
+@font-face {
+  font-family: 'MontserratAlternates';
+  src: url('assets/font/MontserratAlternates-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+.kim-header text {
+  font-family: 'MontserratAlternates', 'Satoshi', sans-serif;
+  font-weight: bold;
+  letter-spacing: 2px;
+  stroke: #43e7e7;
+  stroke-width: 2;
+  filter: drop-shadow(0 2px 8px #000);
+}
+body {
+  padding-top: 120px !important;
+}

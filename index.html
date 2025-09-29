@@ -6,8 +6,28 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="card.css">
   <script src="app.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 </head>
 <body>
+    <header class="kim-header">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 160" class="kim-svg">
+        <defs>
+          <pattern id="kimPattern" patternUnits="userSpaceOnUse" width="1000" height="160">
+            <rect x="0" y="0" width="1000" height="160" fill="#111" />
+            <rect x="0" y="0" width="1000" height="160" fill="url(#kimGradient)" opacity="0.18" />
+          </pattern>
+          <linearGradient id="kimGradient" x1="0" y1="0" x2="1000" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#a259c3"/>
+            <stop offset="20%" stop-color="#f857a6"/>
+            <stop offset="40%" stop-color="#43e7e7"/>
+            <stop offset="60%" stop-color="#ffffff"/>
+            <stop offset="80%" stop-color="#7ec8e3"/>
+            <stop offset="100%" stop-color="#a259c3"/>
+          </linearGradient>
+        </defs>
+        <text x="500" y="120" font-size="120" fill="url(#kimPattern)" text-anchor="middle" style="font-family:'Satoshi',sans-serif;letter-spacing:2px;stroke:#43e7e7;stroke-width:2;filter:drop-shadow(0 2px 8px #000);">Kim Martini</text>
+      </svg>
+    </header>
     <svg class="svg-container" width="0" height="0" style="position:absolute">
       <defs>
         <filter id="card-turbulence" color-interpolation-filters="sRGB" x="-20%" y="-20%" width="140%" height="140%">
@@ -107,5 +127,38 @@
         </div>
       </div>
     </footer>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const pattern = document.getElementById("kimPattern");
+        if (pattern) {
+          const colors = ["#FF6B6B", "#FFD93D", "#6BCB77", "#4D96FF", "#FF922B", "#845EC2"];
+          const columns = 20;
+          const segmentHeight = 30;
+          for (let i = 0; i < columns; i++) {
+            const x = i * 50;
+            for (let j = 0; j < 4; j++) {
+              const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+              rect.setAttribute("x", x);
+              rect.setAttribute("y", j * segmentHeight);
+              rect.setAttribute("width", 50);
+              rect.setAttribute("height", segmentHeight);
+              rect.setAttribute("fill", colors[Math.floor(Math.random() * colors.length)]);
+              pattern.appendChild(rect);
+              anime({
+                targets: rect,
+                translateY: [
+                  { value: -10 + Math.random() * 20, duration: 100 + Math.random() * 100 },
+                  { value: 0, duration: 1000 + Math.random() * 100 }
+                ],
+                easing: 'easeInOutSine',
+                loop: true,
+                direction: 'alternate',
+                delay: Math.random() * 1000
+              });
+            }
+          }
+        }
+      });
+    </script>
 </body>
 </html>

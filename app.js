@@ -165,4 +165,36 @@ document.addEventListener('DOMContentLoaded', function() {
 			if (ytImg) ytImg.style.transform = 'scale(0.7)';
 		}
 	}, 2200); // na card-animatie
+
+	const pattern = document.getElementById("kimPattern");
+	if (pattern) {
+		const colors = ["#a259c3", "#f857a6", "#43e7e7", "#ffffff", "#7ec8e3"];
+		const columns = 20;
+		const segmentHeight = 30;
+		for (let i = 0; i < columns; i++) {
+			const x = i * 50;
+			for (let j = 0; j < 4; j++) {
+				const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+				rect.setAttribute("x", x);
+				rect.setAttribute("y", j * segmentHeight);
+				rect.setAttribute("width", 50);
+				rect.setAttribute("height", segmentHeight);
+				rect.setAttribute("fill", colors[Math.floor(Math.random() * colors.length)]);
+				pattern.appendChild(rect);
+				if (window.anime) {
+					window.anime({
+						targets: rect,
+						translateY: [
+							{ value: -10 + Math.random() * 20, duration: 100 + Math.random() * 100 },
+							{ value: 0, duration: 1000 + Math.random() * 100 }
+						],
+						easing: 'easeInOutSine',
+						loop: true,
+						direction: 'alternate',
+						delay: Math.random() * 1000
+					});
+				}
+			}
+		}
+	}
 });
