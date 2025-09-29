@@ -1,3 +1,222 @@
+/* Web-sectie animatie en styling */
+.web-anim-container {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-end;
+    z-index: 20;
+    pointer-events: auto;
+    opacity: 0;
+    animation: webUp 1.2s cubic-bezier(.14,-0.08,.74,1.4) forwards;
+    margin-bottom: 60px;
+    position: relative;
+}
+.web-img {
+    width: 320px;
+    max-width: 95vw;
+    position: relative;
+    bottom: 0;
+    left: -2px;
+    top: 5px;
+    opacity: 0;
+    animation: webUp 1.2s cubic-bezier(.14,-0.08,.74,1.4) forwards;
+    margin-bottom: -70px;
+    z-index: 100;
+}
+@keyframes webUp {
+    0% { bottom: -300px; opacity: 0; }
+    80% { opacity: 1; }
+    100% { bottom: 0; opacity: 1; }
+}
+.web-card {
+    position: absolute;
+    top: 34%;
+    left: 50.3%;
+    transform: translate(-50%, -50%);
+    z-index: 120;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.web-btn {
+        font-size: 1.1em;
+    width: 210px;
+    height: 165px;
+        aspect-ratio: 4 / 3;
+    border-radius: 8px;
+        border: none;
+        background: linear-gradient(90deg, #ff0080, #00ffff 60%, #8a2be2 100%);
+        color: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 2px 8px #000, 0 1px 6px rgba(255,255,255,0.7);
+        box-shadow:
+            0 1px 0 0 rgba(255,255,255,0.4) inset,
+            0 2px 6px rgba(0,0,0,0.5),
+            0 10px rgba(0,0,0,0.05) inset;
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        cursor: pointer;
+        transition: all 0.18s cubic-bezier(.14,-0.08,.74,1.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+}
+.web-btn:hover {
+    background: linear-gradient(90deg, #8a2be2, #ff0080 60%, #00ffff 100%);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px #fff, 0 2px 8px #000, 0 1px 6px rgba(255,255,255,0.7);
+    box-shadow: 0 0 6px 1px rgba(138,43,226,0.25), 0 0 10px 2px rgba(0,255,255,0.18), 0 0 12px 3px rgba(255,0,128,0.15);
+}
+@font-face {
+    font-family: 'Montserrat Alternates';
+    src: url('assets/font/MontserratAlternates-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+body, html, button, input, select, textarea {
+    font-family: 'Montserrat Alternates', system-ui, -apple-system, sans-serif;
+}
+.custom-dropdown {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    margin-top: 55px;
+    z-index: 2147483647;
+    pointer-events: auto;
+}
+#dropdown-btn {
+            width: 100%;
+            font-size: 1em;
+            background: linear-gradient(90deg, #ff0080, #00ffff 60%, #8a2be2 100%);
+            border: 1.5px solid rgba(255,255,255,0.25);
+            border-radius: 14px;
+            padding: 0.7em 1.2em;
+            box-shadow:
+                0 1px 0 0 rgba(255,255,255,0.4) inset,
+                0 2px 6px rgba(0,0,0,0.5),
+                0 10px rgba(0,0,0,0.05) inset;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            transition: all 0.18s cubic-bezier(.14,-0.08,.74,1.4);
+            z-index: 2147483647;
+            position: relative;
+            overflow: hidden;
+            outline: none;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 8px #000, 0 1px 6px rgba(255,255,255,0.7);
+}
+#dropdown-btn.active {
+        background: linear-gradient(
+            170deg,
+            rgba(255,255,255,1) 0%,
+            rgba(255,255,255,0.7) 20%,
+            rgba(255,255,255,0.2) 55%,
+            rgba(0,0,0,0.0) 56%,
+            rgba(0,0,0,0.0) 100%
+        );
+        color: #ff9100;
+        box-shadow:
+            0 0 8px 2px rgba(255,255,255,0.5),
+            0 0 10px 2px rgba(255,255,255,0.75) inset;
+        background: linear-gradient(
+            170deg,
+            rgba(255,255,255,0.9) 0%,
+            rgba(255,255,255,0.7) 20%,
+            rgba(255,255,255,0.2) 55%,
+            rgba(0,0,0,0.0) 56%,
+            rgba(0,0,0,0.0) 100%
+        );
+        color: #fff;
+        box-shadow:
+            0 0 10px 2px rgba(255,255,255,0.75),
+            0 0 20px 4px rgba(255,255,255,0.5) inset;
+}
+.dropdown-menu {
+        position: absolute;
+        left: 0;
+        bottom: 100%;
+        width: 100%;
+        background: linear-gradient(
+            170deg,
+            rgba(255,255,255,0.8) 0%,
+            rgba(255,255,255,0.6) 20%,
+            rgba(255,255,255,0.1) 50%,
+            rgba(0,0,0,0.0) 50%,
+            rgba(0,0,0,0.0) 100%
+        );
+        border-radius: 14px 14px 0 0;
+        box-shadow:
+            0 1px 0 0 rgba(255,255,255,0.4) inset,
+            0 2px 6px rgba(0,0,0,0.5),
+            0 10px rgba(0,0,0,0.05) inset;
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        list-style: none;
+        margin: 0;
+        padding: 0.3em 0;
+        display: none;
+        flex-direction: column;
+        animation: dropdownUp 0.3s ease;
+        z-index: 2147483647;
+}
+.dropdown-menu.show {
+    display: flex;
+}
+.dropdown-menu li {
+    padding: 0.5em 1em;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    transition: background 0.2s, color 0.2s;
+    font-size: 0.95em;
+    background: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 8px #000, 0 1px 6px rgba(255,255,255,0.7);
+    background-image: linear-gradient(90deg, #ff0080, #00ffff 60%, #8a2be2 100%);
+}
+.dropdown-menu li:last-child {
+    border-bottom: none;
+}
+.dropdown-menu li:hover {
+            background: linear-gradient(
+                170deg,
+                rgba(255,255,255,0.9) 0%,
+                rgba(255,255,255,0.7) 20%,
+                rgba(255,255,255,0.2) 55%,
+                rgba(0,0,0,0.0) 56%,
+                rgba(0,0,0,0.0) 100%
+            );
+            background-image: linear-gradient(90deg, #ff0080, #00ffff 60%, #8a2be2 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+}
+@keyframes dropdownUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+#mix-cover {
+    width: 100%;
+    max-width: 100px;
+    display: block;
+    margin: 0 auto 8px;
+}
 /* Verberg Play on SoundCloud knop in iframe */
 #sc-player::-webkit-scrollbar,
 #sc-player .sc-button,
@@ -55,7 +274,7 @@
     align-items: center;
     justify-content: flex-end;
     z-index: 20;
-    pointer-events: none;
+    pointer-events: auto;
 }
 .radio-img {
     width: 320px;

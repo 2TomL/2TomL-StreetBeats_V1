@@ -1,3 +1,92 @@
+/* Electro kader YouTube-sectie */
+.yt-card-container {
+                            position: absolute;
+                            left: 60%;
+                            bottom: 240px;
+                            transform: translateX(-50%);
+                z-index: 13;
+                width: 320px;
+                height: 180px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                pointer-events: none;
+}
+.yt-inner-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.yt-border-outer {
+    width: 100%;
+    height: 100%;
+    border-radius: 22px;
+    border: 2.5px solid #b6eaff;
+    box-shadow: 0 0 18px 2px #b6eaff88, 0 0 32px 0px #00f0ff33;
+    background: rgba(0, 20, 40, 0.18);
+    filter: url(#card-turbulence);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.yt-main-card {
+    width: 100%;
+    height: 100%;
+    border-radius: 22px;
+    background: linear-gradient(135deg, rgba(0,40,80,0.22) 0%, rgba(0,0,0,0.18) 100%);
+    box-shadow: 0 0 18px 2px #b6eaff44;
+}
+.yt-glow-layer-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 22px;
+    box-shadow: 0 0 32px 8px #00f0ff22, 0 0 18px 2px #b6eaff44;
+    pointer-events: none;
+}
+.yt-overlay-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 22px;
+    background: linear-gradient(90deg, rgba(0,255,255,0.08) 0%, rgba(0,0,0,0.08) 100%);
+    pointer-events: none;
+}
+.yt-background-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 180px;
+    height: 80px;
+    border-radius: 50px;
+    background: radial-gradient(circle, #00f0ff33 0%, transparent 80%);
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    pointer-events: none;
+}
+/* Projector animatie en positionering */
+.yt-anim-container {
+    position: absolute;
+    left: 45%; /* iets meer naar links */
+    bottom: 55px; /* tikje lager */
+    transform: translateX(-50%);
+    z-index: 12;
+    opacity: 0;
+    transition: opacity 0.7s;
+    pointer-events: none;
+}
+.yt-img {
+    width: 180px;
+    max-width: 80vw;
+    filter: drop-shadow(0 0 18px rgba(0,0,0,0.18));
+    transform: scale(0.7);
+    transition: transform 0.7s cubic-bezier(0.4,0,0.2,1);
+    display: block;
+}
 body, html {
     height: 100%;
     margin: 0;
@@ -136,7 +225,7 @@ body, html {
     width: 84%;
     height: 0px;
     bottom: -10px;
-    box-shadow: 0 0 25px 9px rgba(255, 0, 0, 0.33), 50px 10px 25px 8px rgba(18, 255, 0, 0.33), -40px 8px 25px 9px rgba(242, 255, 0, 0.33);
+    box-shadow: 0 0 25px 9px rgba(255,255,255,0.18), 50px 10px 25px 8px rgba(18, 255, 0, 0.18), -40px 8px 25px 9px rgba(0, 255, 255, 0.18);
     left: 0;
     right: 0;
     margin: auto;
@@ -190,12 +279,18 @@ label > img{
     right: 0;
     margin: auto;
     transition: 200ms cubic-bezier(.14,-0.08,.74,1.4);
-    box-shadow: 0px 82px 20px 0px rgba(128, 128, 128, 0.29);
+                    box-shadow:
+                        0 0 40px 18px rgba(255,255,255,0.33),
+                        0 0 160px 60px rgba(0,255,255,0.18);
 }
 .indicator{
     width: 70px;
     height: 70px;
-    background-image: linear-gradient(0deg, rgb(247, 176, 176), rgba(183, 255, 154, 0)), linear-gradient(0deg, rgba(158, 255, 151, 0.75), rgba(183, 255, 154, 0)), linear-gradient(0deg, rgb(180, 255, 251), rgba(183, 255, 154, 0));
+            background-image:
+                radial-gradient(circle, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.05) 80%),
+                linear-gradient(0deg, rgb(247, 176, 176), rgba(183, 255, 154, 0)),
+                linear-gradient(0deg, rgba(158, 255, 151, 0.75), rgba(183, 255, 154, 0)),
+                linear-gradient(0deg, rgb(180, 255, 251), rgba(183, 255, 154, 0));
     background-size: cover;
     background-position: 0 10px;
     border-radius: 50%;
