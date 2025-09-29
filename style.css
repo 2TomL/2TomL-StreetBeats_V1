@@ -424,6 +424,44 @@ body {
   top: 230px;
   transform: translateX(-50%);
   z-index: 2;
+  background: linear-gradient(90deg, #a259c3, #f857a6 20%, #43e7e7 40%, #ffffff 60%, #7ec8e3 80%, #a259c3 100%);
+  border-radius: 8px;
+  height: 6px;
+  outline: none;
+}
+#sc-volume::-webkit-slider-thumb {
+  background: #43e7e7;
+  border: 2px solid #a259c3;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #43e7e7, 0 0 2px #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+#sc-volume::-moz-range-thumb {
+  background: #43e7e7;
+  border: 2px solid #a259c3;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #43e7e7, 0 0 2px #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+#sc-volume::-ms-thumb {
+  background: #43e7e7;
+  border: 2px solid #a259c3;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #43e7e7, 0 0 2px #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+#sc-volume:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #43e7e744;
 }
 #sc-player-wrapper {
   position: relative;
