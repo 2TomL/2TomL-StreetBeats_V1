@@ -415,3 +415,20 @@ body {
 .svg-container {
   position: absolute;
 }
+#sc-volume {
+  width: 120px;
+  margin: 10px 0;
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 230px;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+#sc-player-wrapper {
+  position: relative;
+}
+.custom-dropdown {
+  position: relative;
+  z-index: 3;
+}

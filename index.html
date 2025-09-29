@@ -71,6 +71,8 @@
           <div id="sc-player-wrapper" class="sc-player-hidden">
             <img src="assets/photo_icon.png" alt="Foto icoon" id="mix-cover">
             <iframe id="sc-player" width="110%" height="110" scrolling="no" frameborder="no" allow="autoplay" src="" title="SoundCloud Player"></iframe>
+            <label for="sc-volume" style="display:none;">Volume</label>
+            <input type="range" id="sc-volume" min="0" max="100" value="80" step="1" title="Volume">
             <div id="sc-song-menu"></div>
             <div class="custom-dropdown">
               <button id="dropdown-btn">Choose your track &#x25B2;</button>
@@ -101,7 +103,7 @@
             <div class="yt-background-glow"></div>
           </div>
         </div>
-        <div class="web-anim-container" style="display:none;">
+        <div class="web-anim-container"style="display:none;">
           <img src="assets/pc.png" alt="Computer" class="web-img" />
           <div class="web-card">
             <button class="web-btn">Visit my Website</button>
