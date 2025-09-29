@@ -1,9 +1,3 @@
-#mix-cover {
-    width: 100%;
-    max-width: 100px;
-    display: block;
-    margin: 0 auto 8px;
-}
 /* Verberg Play on SoundCloud knop in iframe */
 #sc-player::-webkit-scrollbar,
 #sc-player .sc-button,
