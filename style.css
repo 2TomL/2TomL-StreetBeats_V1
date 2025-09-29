@@ -5,8 +5,8 @@
                             bottom: 240px;
                             transform: translateX(-50%);
                 z-index: 13;
-                width: 320px;
-                height: 180px;
+                width: 330px;
+                height: 190px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -359,4 +359,15 @@ label > img{
 }
 body {
   padding-top: 120px !important;
+}
+.yt-feed-iframe {
+  height: 180px !important;
+  width: 320px;
+  position: absolute;
+  left: 60%;
+  bottom: 240px;
+  transform: translateX(-50%);
+  z-index: 15;
+  box-shadow: 0 4px 32px #0008;
+  border-radius: 22px;
 }
