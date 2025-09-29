@@ -166,6 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 	}, 2200); // na card-animatie
 
+	// Kim Martini SVG animatie
 	const pattern = document.getElementById("kimPattern");
 	if (pattern) {
 		const colors = ["#a259c3", "#f857a6", "#43e7e7", "#ffffff", "#7ec8e3"];
@@ -196,5 +197,12 @@ document.addEventListener('DOMContentLoaded', function() {
 				}
 			}
 		}
+	}
+	// Web button click
+	const webBtn = document.querySelector('.web-btn');
+	if (webBtn) {
+		webBtn.addEventListener('click', function() {
+			window.open('https://2toml.github.io/Kim_Martini/', '_blank');
+		});
 	}
 });

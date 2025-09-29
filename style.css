@@ -344,25 +344,64 @@ label > img{
   pointer-events: none;
 }
 @font-face {
-  font-family: 'MontserratAlternates';
-  src: url('assets/font/MontserratAlternates-Regular.ttf') format('truetype');
+  font-family: 'Seven Moon';
+  src: url('assets/font/Seven Moon.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 .kim-header text {
-  font-family: 'MontserratAlternates', 'Satoshi', sans-serif;
-  font-weight: bold;
+  font-family: 'Seven Moon', sans-serif;
+  font-weight: normal;
   letter-spacing: 2px;
   stroke: #43e7e7;
-  stroke-width: 2;
+  stroke-width: 1.2;
   filter: drop-shadow(0 2px 8px #000);
 }
 body {
   padding-top: 120px !important;
 }
+/* Hide sections by default */
+.sc-player-hidden {
+  opacity: 0;
+  transition: opacity 0.6s;
+}
+.sc-player-show {
+  opacity: 1;
+  transition: opacity 0.6s;
+}
+#mix-cover {
+  opacity: 0;
+  transition: opacity 0.6s;
+}
+#sc-player {
+  opacity: 0;
+  transition: opacity 0.6s;
+}
+#sc-song-menu {
+  opacity: 0;
+  transition: opacity 0.6s;
+}
+.custom-dropdown {
+  opacity: 0;
+  transition: opacity 0.6s;
+}
+.custom-dropdown.show,
+.custom-dropdown.active {
+  opacity: 1;
+}
+.yt-anim-container {
+  display: none;
+}
+.yt-anim-container.active {
+  display: block;
+}
+.web-anim-container {
+  display: none;
+}
+.web-anim-container.active {
+  display: flex;
+}
 .yt-feed-iframe {
-  height: 180px !important;
-  width: 320px;
   position: absolute;
   left: 60%;
   bottom: 240px;
@@ -370,4 +409,9 @@ body {
   z-index: 15;
   box-shadow: 0 4px 32px #0008;
   border-radius: 22px;
+  width: 320px;
+  height: 180px;
+}
+.svg-container {
+  position: absolute;
 }

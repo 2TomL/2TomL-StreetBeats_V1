@@ -171,6 +171,8 @@ body, html, button, input, select, textarea {
         flex-direction: column;
         animation: dropdownUp 0.3s ease;
         z-index: 2147483647;
+        opacity: 1;
+        transition: opacity 0.6s;
 }
 .dropdown-menu.show {
     display: flex;
