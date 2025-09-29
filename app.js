@@ -205,6 +205,48 @@ document.addEventListener('DOMContentLoaded', function() {
 			window.open('https://2toml.github.io/Kim_Martini/', '_blank');
 		});
 	}
+
+	let touchStartX = null;
+	let touchEndX = null;
+	function handleSwipe() {
+	  if (touchStartX === null || touchEndX === null) return;
+	  const diff = touchEndX - touchStartX;
+	  if (Math.abs(diff) < 50) return; // ignore small swipes
+	  // Get current section
+	  const s1 = document.getElementById('s1');
+	  const s2 = document.getElementById('s2');
+	  const s3 = document.getElementById('s3');
+	  if (diff < 0) { // swipe left
+	    if (s2.checked) {
+	      s3.checked = true;
+	      document.getElementById('nav-youtube').click();
+	    } else if (s1.checked) {
+	      s2.checked = true;
+	      document.getElementById('nav-soundcloud').click();
+	    }
+	  } else { // swipe right
+	    if (s2.checked) {
+	      s1.checked = true;
+	      document.getElementById('nav-web').click();
+	    } else if (s3.checked) {
+	      s2.checked = true;
+	      document.getElementById('nav-soundcloud').click();
+	    }
+	  }
+	  touchStartX = null;
+	  touchEndX = null;
+	}
+	document.addEventListener('touchstart', function(e) {
+	  if (e.touches.length === 1) {
+	    touchStartX = e.touches[0].clientX;
+	  }
+	});
+	document.addEventListener('touchend', function(e) {
+	  if (e.changedTouches.length === 1) {
+	    touchEndX = e.changedTouches[0].clientX;
+	    handleSwipe();
+	  }
+	});
 });
 window.addEventListener('DOMContentLoaded', function() {
   if (window.innerWidth > 600) {

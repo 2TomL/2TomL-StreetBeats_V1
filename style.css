@@ -399,9 +399,28 @@ body {
 }
 .web-anim-container {
   display: none;
+  flex-direction: column;
+  align-items: center;
 }
 .web-anim-container.active {
   display: flex;
+}
+.web-img {
+  display: block;
+  margin-top: 60px;
+  margin-bottom: 24px;
+  max-width: 180px;
+}
+.web-card {
+  margin-bottom: 0;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.web-btn {
+  margin-top: 80px;
+  margin-left: 8px;
 }
 .yt-feed-iframe {
   position: absolute;
@@ -471,4 +490,7 @@ body {
 .custom-dropdown {
   position: relative;
   z-index: 3;
+}
+.card-container {
+  height: 140px;
 }
