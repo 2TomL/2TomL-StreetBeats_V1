@@ -494,3 +494,41 @@ body {
 .card-container {
   height: 140px;
 }
+/* Overlay for YouTube section */
+.youtube-overlay {
+  position: fixed;
+  bottom: 230px; /* Increased height by an additional 20px */
+  left: 20px; /* Shifted slightly to the right */
+  width: 100%;
+  height: auto;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 20; /* Higher than the YouTube container */
+  padding: 20px 0;
+}
+
+.sand-timer {
+  width: 100px;
+  height: 100px;
+  animation: spin 2s linear infinite;
+}
+
+.coming-soon {
+  font-family: 'Seven Moon', sans-serif;
+  font-size: 24px;
+  color: #43e7e7;
+  text-shadow: 0 2px 8px #000;
+  margin-top: 10px;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
