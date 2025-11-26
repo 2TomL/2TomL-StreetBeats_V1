@@ -133,6 +133,16 @@ document.addEventListener('DOMContentLoaded', function() {
 	document.addEventListener('click', function(e) {
 		if (!dropdownBtn.contains(e.target)) closeDropdown();
 	});
+		}).catch(err => {
+			console.error('Failed to load SoundCloud RSS feed:', err);
+			// Show user-friendly message in the song menu and dropdown
+			try {
+				menu.innerHTML = '<div class="sc-error">Songs could not be loaded. Please try again later.</div>';
+				const dropdownMenuEl = document.getElementById('dropdown-menu');
+				if (dropdownMenuEl) dropdownMenuEl.innerHTML = '<li class="sc-error">Unable to load tracks</li>';
+			} catch (e) {
+				console.error('Error displaying SoundCloud load error:', e);
+			}
 		});
 
 	// Set SoundCloud player src
@@ -208,6 +218,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	let touchStartX = null;
 	let touchEndX = null;
+	let ignoreSwipe = false; // when true, global swipe detection is disabled (e.g., when interacting with dropdown)
 	function handleSwipe() {
 	  if (touchStartX === null || touchEndX === null) return;
 	  const diff = touchEndX - touchStartX;
@@ -237,15 +248,32 @@ document.addEventListener('DOMContentLoaded', function() {
 	  touchEndX = null;
 	}
 	document.addEventListener('touchstart', function(e) {
-	  if (e.touches.length === 1) {
-	    touchStartX = e.touches[0].clientX;
-	  }
+		// If touch originated within the dropdown menu, ignore global swipe handling
+		const target = e.target;
+		if (target && target.closest && target.closest('.dropdown-menu')) {
+			ignoreSwipe = true;
+			return;
+		}
+		if (e.touches.length === 1) {
+			touchStartX = e.touches[0].clientX;
+		}
 	});
 	document.addEventListener('touchend', function(e) {
-	  if (e.changedTouches.length === 1) {
-	    touchEndX = e.changedTouches[0].clientX;
-	    handleSwipe();
-	  }
+		// If we were ignoring swipe (touch started in dropdown), reset and don't process
+		if (ignoreSwipe) {
+			ignoreSwipe = false;
+			touchStartX = null;
+			touchEndX = null;
+			return;
+		}
+		if (e.changedTouches.length === 1) {
+			touchEndX = e.changedTouches[0].clientX;
+			handleSwipe();
+		}
+	});
+	// Also guard against touchmove on dropdowns that should scroll vertically
+	document.addEventListener('touchmove', function(e) {
+		if (ignoreSwipe) return; // do nothing if interacting with dropdown
 	});
 });
 window.addEventListener('DOMContentLoaded', function() {
